@@ -1,9 +1,11 @@
-import { Button } from "@material-tailwind/react";
+import Header from "../components/Header";
+import Suggestion from "../components/Suggestion";
 const Home = () => {
     return (
         <div>
+            <Header></Header>
+            <Suggestion></Suggestion>
             <h3>this is home</h3>
-            <Button>Button</Button>
         </div>
     );
 };

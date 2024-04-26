@@ -1,10 +1,9 @@
+import { useContext } from 'react';
+import { AuthContext } from '../authProvider/AuthProvider';
 
 const AuthHooks = () => {
-    return (
-        <div>
-            <h3>AuthHooks</h3>
-        </div>
-    );
+    const all = useContext(AuthContext)
+    return all;
 };
 
 export default AuthHooks;
