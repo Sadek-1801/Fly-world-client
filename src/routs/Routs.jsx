@@ -10,6 +10,8 @@ import AddTouristSpot from "../protectedRout/AddTouristSpot";
 import MyList from "../protectedRout/MyList";
 import Details from "../components/Details";
 import UpdateCard from "../components/UpdateCard";
+import AddCountries from "../protectedRout/AddCountries";
+import TouristInCountry from "../components/TouristInCountry";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -18,11 +20,16 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/touristSpot')
             },
             {
                 path: "/addTourist",
                 element: <PrivateRouts><AddTouristSpot></AddTouristSpot></PrivateRouts>
+            },
+            {
+                path: "/addCountries",
+                element: <PrivateRouts><AddCountries></AddCountries></PrivateRouts>
             },
             {
                 path: "/myList",
@@ -31,7 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: "/touristSpot",
                 element: <TouristSpot></TouristSpot>,
-                loader: () => fetch('http://localhost:5000/touristSpot')
+                
             },
             {
                 path: "/touristSpot/:id",
@@ -45,6 +52,11 @@ export const router = createBrowserRouter([
             {
                 path: "/touristSpot/:email",
                 element: <PrivateRouts><MyList></MyList></PrivateRouts>,
+            },
+            {
+                path: "/country/:name",
+                element: <PrivateRouts><TouristInCountry></TouristInCountry></PrivateRouts>,
+                loader: ({params}) => fetch(`http://localhost:5000/country/${params.name}`)
             },
             {
                 path: "/login",
