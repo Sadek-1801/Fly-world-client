@@ -27,7 +27,7 @@ const Login = () => {
                 }
             })
             .catch(() => {
-                toast.error('Try Again')
+                toast.error('Please Provide Correct Email & Password')
             })
     }
     const handleGoogleSignIn = () => {

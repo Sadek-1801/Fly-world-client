@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import {  createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext(null)
 const githubProvider = new GithubAuthProvider();
@@ -74,5 +74,7 @@ const AuthProvider = ({children}) => {
         </AuthContext.Provider>
     );
 };
-
+AuthProvider.propTypes = {
+    children: PropTypes.node
+}
 export default AuthProvider;

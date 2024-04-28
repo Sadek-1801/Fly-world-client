@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
     const {user, logOut} = AuthHooks();
-    console.log(user)
 
     const [theme, setTheme] = useState('light')
     const handleTheme = (e) => {
@@ -30,9 +29,14 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold"} >Home</NavLink></li>
-        <li><NavLink to="/touristSpot" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold"}>All Tourist Spot</NavLink></li>
-    </>
+        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"} >Home</NavLink></li>
+        <li><NavLink to="/touristSpot" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"}>All Tourist Spot</NavLink></li>
+        { user &&
+        <> 
+        <li><NavLink to="/addTourist" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"} >Add Tourist Spot</NavLink></li>
+        <li><NavLink to="/myList" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"}>My List</NavLink></li></>
+        }
+     </>
 
     return (
         <div className="navbar bg-base-100">
@@ -73,7 +77,7 @@ const Navbar = () => {
                 {
                     user ? <> 
                     <Avatar src={user?.photoURL ||"https://docs.material-tailwind.com/img/face-2.jpg" }alt="avatar" />
-                    <Link to={'/login'} onClick={handleLogout} type="button" className=" bg-second text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100">Logout</Link>
+                    <Link to={'/login'} onClick={handleLogout} type="button" className=" bg-[#FB872C] text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 ml-4">Logout</Link>
                     
                     </> :
                     <>
