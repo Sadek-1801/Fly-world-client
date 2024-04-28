@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AuthHooks from "../hooks/AuthHooks";
 import MyTouristSpot from "../components/MyTouristSpot";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
     const { user } = AuthHooks();
@@ -13,6 +14,12 @@ const MyList = () => {
                 setItem(data);
             });
     }, [user]);
+    if (item.length < 1) {
+        return <div className="flex flex-col justify-center items-center"><h1 className="text-4xl text-center font-bold">No Data Added. Please Add Some Data First</h1>
+
+        <Link to={'/addTourist'} className="btn bg-first text-white text-2xl font-semibold">Add Some Data</Link>
+        </div>
+    }
     const TABLE_HEAD = ["Spot Name", "Location", "Time", "Edit", "Delete"];
     return (
         <div>

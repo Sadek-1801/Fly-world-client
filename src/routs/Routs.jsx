@@ -39,9 +39,8 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
             },
             {
-                path: "/touristSpot/:id",
+                path: "/touristSpot/update/:id",
                 element: <PrivateRouts><UpdateCard></UpdateCard></PrivateRouts>,
-                loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
             },
             {
                 path: "/touristSpot/:email",

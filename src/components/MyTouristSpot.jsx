@@ -9,8 +9,8 @@ const MyTouristSpot = ({ mySpot }) => {
             <th className="p-3 text-xl font-semibold text-left md:pl-20">{tourist_spot}</th>
             <th className="p-3 text-xl font-semibold">{location}</th>
             <th className="p-3 text-xl font-semibold">{travel_time}</th>
-            <th className="p-3 text-xl font-semibold"><Link to={`/touristSpot/${_id}`} className="bg-first text-white btn btn-circle text-3xl"><CiEdit /></Link></th>
-            <th className="p-3 text-center"><Link to={`/touristSpot/${_id}`}  className="bg-first text-3xl text-white btn btn-circle"><TiDelete />
+            <th className="p-3 text-xl font-semibold"><Link to={`/touristSpot/update/${_id}`} className="bg-first text-white btn btn-circle text-3xl"><CiEdit /></Link></th>
+            <th className="p-3 text-center"><Link className="bg-first text-3xl text-white btn btn-circle"><TiDelete />
             </Link></th>
         </tr>
     );
