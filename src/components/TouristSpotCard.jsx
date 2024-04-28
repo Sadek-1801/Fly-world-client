@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const TouristSpotCard = ({ touristSpot }) => {
-    const {_id, image, tourist_spot, location, average_cost, travel_time, season, total_visit, email } = touristSpot;
+    const {_id, image, tourist_spot, location, average_cost, travel_time, season, total_visit } = touristSpot;
     return (
         <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto relative">
             
@@ -34,9 +34,6 @@ const TouristSpotCard = ({ touristSpot }) => {
                     </ul>
                 </div>
                 <Link to={`/touristSpot/${_id}`}>
-                <button className='btn bg-first text-white font-semibold text-lg hover:scale-110'>View Details</button>
-                </Link>
-                <Link to={`/touristSpot/${email}`}>
                 <button className='btn bg-first text-white font-semibold text-lg hover:scale-110'>View Details</button>
                 </Link>
             </div>
