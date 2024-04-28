@@ -6,7 +6,6 @@ const Details = () => {
     const touristSpotDetails = useLoaderData();
     const { user } = AuthHooks()
     const { image, tourist_spot, location, average_cost, travel_time, season, total_visit, description, name, email, country } = touristSpotDetails;
-    console.log(touristSpotDetails)
     return (
         <section className="dark:bg-gray-100 dark:text-gray-800">
             <div className="container flex flex-col-reverse mx-auto lg:flex-row">

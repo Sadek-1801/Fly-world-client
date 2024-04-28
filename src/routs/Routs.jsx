@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: "/touristSpot",
                 element: <TouristSpot></TouristSpot>,
-                
+                loader: () => fetch('http://localhost:5000/touristSpot')
             },
             {
                 path: "/touristSpot/:id",

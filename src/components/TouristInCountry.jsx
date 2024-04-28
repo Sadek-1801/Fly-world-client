@@ -4,8 +4,7 @@ import TouristSpotCard from "./TouristSpotCard";
 
 const TouristInCountry = () => {
     const country = useLoaderData()
-    const {name} = useParams()
-    console.log(name)
+    const {name} = useParams();
     if (country.length < 1) {
         return <div className="flex flex-col justify-center items-center"><h1 className="text-4xl text-center font-bold">No Data Added. Please Add Some Data First</h1>
 

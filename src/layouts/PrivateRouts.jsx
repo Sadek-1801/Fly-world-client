@@ -7,7 +7,7 @@ const PrivateRouts = ({ children }) => {
     const { user, loader } = AuthHooks()
     const location = useLocation()
     if (loader) {
-        return <RingLoader color="#FD5056" size={200} />
+        return <div className='flex items-center justify-center my-32'><RingLoader color="#FD5056" size={200} /></div>
     }
     if (!user) {
         return <Navigate to='/login' state={location?.pathname || '/'}></Navigate>;
