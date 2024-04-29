@@ -1,28 +1,86 @@
+import { EffectFade, Autoplay } from "swiper/modules";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import slider1 from "../assets/slider3.jpg"
+import slider2 from "../assets/ammie-ngo-vcu-OZBxxRk-unsplash.jpg"
+import slider3 from "../assets/jacek-dylag-SPpsFbCaN2A-unsplash.jpg"
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import Slider from "./Slider";
 
 const Header = () => {
     return (
-        <section className="dark:bg-gray-100 dark:text-gray-800">
-            <div className="container flex flex-col justify-center p-6 mx-auto sm:py-10 lg:py-16 lg:flex-row lg:justify-between">
-                <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-                    <p className="text-xl font-semibold text-first">Explore The World</p>
-                    <h1 className="text-5xl text-second font-bold leading-none sm:text-6xl">
-                        <span className="dark:text-gray-50 dark:bg-default-600 ">Its a Big World Out</span> There, Go and Explore
-                    </h1>
-                    <p className="mt-6 mb-8 text-lg sm:mb-12">Dictum aliquam porta in condimentum ac integer
-                        <br className="hidden md:inline lg:hidden" />turpis pulvinar, est scelerisque ligula sem
-                    </p>
-                    <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded dark:bg-default-600 dark:text-gray-50">Suspendisse</a>
-                        <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-800">Malesuada</a>
-                    </div>
+        <div className="p-5 lg:h-[600px]  bg-gradient-to-r from-[#F9F3F0] from-10% via-[#FCE7DC] via-30% to-[#F9F3F0] to-90% dark:bg-gradient-to-r dark:from-[#f2f2d8] dark:from-10% dark:via-[#FCE7DC] dark:via-30% dark:to-[#fae1d4]">
+          <Swiper
+            effect={"fade"}
+            fadeEffect={{ crossFade: true }}
+            slidesPerView={1}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, EffectFade]}
+            className="mySwiper"
+          >
+            {/* slide 1 */}
+            <SwiperSlide>
+              <div className="md:h-[500px] h-auto">
+                <div className="h-full flex flex-col md:flex-row justify-between md:gap-2 gap-10 items-center">
+                 <Slider></Slider>
+    
+                  {/* left */}
+                  <div className="w-full md:max-h-[400px]  flex-1 mb-10 md:mb-0">
+                    <img
+                      className="md:h-full h-[250px] object-cover w-full"
+                      src={slider1}
+                      alt=""
+                    />
+                  </div>
                 </div>
-                <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-                <img src="assets/svg/Business_SVG.svg" alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
-
+              </div>
+            </SwiperSlide>
+            {/* slide 2 */}
+            <SwiperSlide>
+              <div className="md:h-[500px] h-auto">
+                <div className="h-full flex flex-col md:flex-row justify-between md:gap-2 gap-10 items-center">
+                  <Slider></Slider>
+    
+                  {/* left */}
+                  <div className="w-full md:max-h-[400px]  flex-1 mb-10 md:mb-0">
+                    <img
+                      className="md:h-full h-[250px] object-cover w-full"
+                      src={slider2}
+                      alt=""
+                    />
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+            </SwiperSlide>
+            {/* slide 3 */}
+            <SwiperSlide>
+              <div className="md:h-[500px] h-auto">
+                <div className="h-full flex flex-col md:flex-row justify-between md:gap-2 gap-10 items-center">
+                <Slider></Slider>
+    
+                  {/* left */}
+                  <div className="w-full max-h-[400px] flex-1 mb-10 md:mb-0">
+                    <img
+                      className="h-full object-cover w-full"
+                      src={slider3}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+    
+        </div>
+      );
 };
 
 export default Header;
