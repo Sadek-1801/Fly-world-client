@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import {  Zoom } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
 
 const TouristSpotCard = ({ touristSpot }) => {
     const {_id, image, tourist_spot, location, average_cost, travel_time, season, total_visit, country } = touristSpot;
     return (
-        <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto relative">
+        <Zoom cascade fraction={0.1} damping={1.2} duration={1200}>
+            <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto relative">
             
             <img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
             <div className='absolute btn top-4 border-none bg-first text-white  font-semibold -rotate-45 opacity-70 hover:opacity-100 hover:bg-first hover:scale-105'>$: {average_cost}</div>
@@ -37,7 +39,9 @@ const TouristSpotCard = ({ touristSpot }) => {
                 <button className='btn bg-first text-white font-semibold text-lg hover:scale-110'>View Details</button>
                 </Link>
             </div>
+            
         </div>
+        </Zoom>
     );
 };
 TouristSpotCard.propTypes = {
