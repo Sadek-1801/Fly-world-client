@@ -5,7 +5,7 @@ const Countries = () => {
     // const countries = useLoaderData()
     const [countries, setCountries] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/country")
+        fetch("https://web-tourism-server.vercel.app/country")
         .then(res => res.json())
         .then(data => setCountries(data))
     }, [])

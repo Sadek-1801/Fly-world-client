@@ -10,7 +10,7 @@ const AddCountries = () => {
         console.log(data)
         const allData = {country_name, country_image, short_description}
         console.log(allData)
-        fetch('http://localhost:5000/country', {
+        fetch('https://web-tourism-server.vercel.app/country', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

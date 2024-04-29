@@ -7,7 +7,7 @@ const UpdateCard = () => {
     const { id } = useParams()
     const [touristSpot, setTouristSpot] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/touristSpot/${id}`)
+        fetch(`https://web-tourism-server.vercel.app/touristSpot/${id}`)
         .then(res => res.json())
         .then(data => setTouristSpot(data))
     }, [id])
@@ -17,7 +17,7 @@ const UpdateCard = () => {
     const onSubmit = (data) => {
         const { average_cost, description, image, location, total_visit, tourist_spot, travel_time, country, season } = data;
         const upDateallData = { average_cost, description, image, location, total_visit, tourist_spot, travel_time, country, season }
-        fetch(`http://localhost:5000/updateTouristSpot/${id}`, {
+        fetch(`https://web-tourism-server.vercel.app/updateTouristSpot/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const TouristSpotCard = ({ touristSpot }) => {
-    const {_id, image, tourist_spot, location, average_cost, travel_time, season, total_visit } = touristSpot;
+    const {_id, image, tourist_spot, location, average_cost, travel_time, season, total_visit, country } = touristSpot;
     return (
         <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto relative">
             
@@ -10,7 +10,7 @@ const TouristSpotCard = ({ touristSpot }) => {
             <div className='absolute btn top-4 border-none bg-first text-white  font-semibold -rotate-45 opacity-70 hover:opacity-100 hover:bg-first hover:scale-105'>$: {average_cost}</div>
             <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">
-                    <h2 className="text-xl font-semibold tracking-wide text-second">{location}</h2>
+                    <h2 className="text-xl font-semibold tracking-wide text-second">{location}, {country.toUpperCase()}</h2>
                     <h2 className="text-2xl font-semibold tracking-wide text-second">{tourist_spot} </h2>
                     <ul className="flex-1 mb-6 text-gray-600">
                         <li className="flex mb-2 space-x-2">

@@ -8,7 +8,7 @@ const AddTouristSpot = () => {
         } = data
         const allData = { average_cost, description, email, image, location, name, total_visit, tourist_spot, travel_time, country, season }
         console.log(allData)
-        fetch('http://localhost:5000/touristSpot', {
+        fetch('https://web-tourism-server.vercel.app/touristSpot', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

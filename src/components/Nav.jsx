@@ -4,10 +4,11 @@ import logo2 from "../assets/logo2.svg"
 import AuthHooks from "../hooks/AuthHooks";
 import { Avatar } from "@material-tailwind/react";
 import toast from "react-hot-toast";
+import { Tooltip } from "react-tooltip";
 
 
 const Navbar = () => {
-    const {user, logOut} = AuthHooks();
+    const { user, logOut } = AuthHooks();
 
     const [theme, setTheme] = useState('light')
     const handleTheme = (e) => {
@@ -27,16 +28,15 @@ const Navbar = () => {
             .then(toast.success('Successfully Logged Out'))
             .catch()
     }
-
     const navLinks = <>
         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"} >Home</NavLink></li>
         <li><NavLink to="/touristSpot" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"}>All Tourist Spot</NavLink></li>
-        { user &&
-        <> 
-        <li><NavLink to="/addTourist" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"} >Add Tourist Spot</NavLink></li>
-        <li><NavLink to="/myList" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"}>My List</NavLink></li></>
+        {user &&
+            <>
+                <li><NavLink to="/addTourist" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"} >Add Tourist Spot</NavLink></li>
+                <li><NavLink to="/myList" className={({ isActive }) => isActive ? "text-first font-bold border border-first" : "font-bold text-second"}>My List</NavLink></li></>
         }
-     </>
+    </>
 
     return (
         <div className="navbar bg-base-100">
@@ -75,15 +75,19 @@ const Navbar = () => {
                     </label>
                 </div>
                 {
-                    user ? <> 
-                    <Avatar src={user?.photoURL ||"https://docs.material-tailwind.com/img/face-2.jpg" }alt="avatar" />
-                    <Link to={'/login'} onClick={handleLogout} type="button" className=" bg-[#FB872C] text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 ml-4">Logout</Link>
-                    
+                    user ? <>
+                        <Avatar id="my-anchor-element" src={user?.photoURL || "https://docs.material-tailwind.com/img/face-2.jpg"} alt="avatar" />
+                        <Tooltip
+                            anchorSelect="#my-anchor-element"
+                            content={user?.displayName || "User Name"}
+                        />
+                        <Link to={'/login'} onClick={handleLogout} type="button" className=" bg-[#FB872C] text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 ml-4">Logout</Link>
+
                     </> :
-                    <>
-                    <Link to={'/login'} type="button" className=" bg-first text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100">Login</Link>
-                    <Link to={'/register'} type="button" className=" bg-first text-white px-6 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 ml-4">Register</Link>
-                    </>
+                        <>
+                            <Link to={'/login'} type="button" className=" bg-first text-white px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100">Login</Link>
+                            <Link to={'/register'} type="button" className=" bg-first text-white px-6 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 ml-4">Register</Link>
+                        </>
                 }
             </div>
         </div>
