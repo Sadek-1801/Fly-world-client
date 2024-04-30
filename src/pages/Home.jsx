@@ -15,7 +15,6 @@ const Home = () => {
             <Gallery></Gallery>
             </div>
             <div className="my-10"><Subscribe></Subscribe></div>
-            <h3>this is home</h3>
         </div>
     );
 };
