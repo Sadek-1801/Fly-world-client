@@ -14,7 +14,7 @@ import { Zoom } from "react-awesome-reveal"
 const Gallery = () => {
     return (
         <section className="py-6 bg-gray-100 text-gray-900">
-            <h1 className="text-center text-4xl text-second font-bold my-8">Fly World Gallery</h1>
+            <h1 className="text-center text-4xl text-second font-bold my-8"><span className="text-first">Fly World</span> Gallery</h1>
             <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
                 <Zoom duration={800} fraction={0.2} ><img src={image1} alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" /></Zoom>
                 <Zoom duration={800} fraction={0.2}><img alt="" className="w-full h-full rounded shadow-sm min-h-48 bg-gray-500 aspect-square" src={image2} /></Zoom>

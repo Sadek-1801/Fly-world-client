@@ -66,7 +66,7 @@ const Subscribe = () => {
                             <Input type="email" label="Email" />
                             <Input label="Subject" />
                             <Textarea rows={6} label="Message" />
-                            <Button>Send Message</Button>
+                            <Button onClick={closeDrawer}>Send Message</Button>
                         </form>
                     </Drawer>
                 </React.Fragment>

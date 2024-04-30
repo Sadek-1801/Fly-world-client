@@ -6,7 +6,9 @@ const AddTouristSpot = () => {
     const onSubmit = (data) => {
         const { average_cost, description, email, image, location, name, total_visit, tourist_spot, travel_time, season, country
         } = data
-        const allData = { average_cost, description, email, image, location, name, total_visit, tourist_spot, travel_time, country, season }
+        const userEmail = email.toLowerCase();
+        const userName = name.toLowerCase();
+        const allData = { average_cost, description, userEmail, image, location, userName, total_visit, tourist_spot, travel_time, country, season }
         console.log(allData)
         fetch('https://web-tourism-server.vercel.app/touristSpot', {
             method: 'POST',

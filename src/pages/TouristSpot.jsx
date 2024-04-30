@@ -7,7 +7,7 @@ const TouristSpot = () => {
     const touristSpots = useLoaderData();
     const [sortedSpots, setSortedSpots] = useState([...touristSpots])
 
-
+    console.log(touristSpots)
     const sortTouristSpotsDsc = () => {
             const copiedSpots = [...touristSpots];
             copiedSpots.sort((a, b) => parseInt(b.average_cost) - parseInt(a.average_cost));

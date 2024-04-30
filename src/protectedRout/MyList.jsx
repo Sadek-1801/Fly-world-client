@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 const MyList = () => {
     const { user } = AuthHooks();
+    console.log(user.email)
     const [item, setItem] = useState([]);
-
+    console.log(item)
     useEffect(() => {
-        fetch(`https://web-tourism-server.vercel.app/touristSpots/${user?.email}`)
+        fetch(`https://web-tourism-server.vercel.app/touristSpots/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setItem(data);
@@ -44,7 +45,7 @@ const MyList = () => {
                         </thead>
                         <tbody>
                             {
-                                item.map((mySpot) => <MyTouristSpot key={mySpot._id} mySpot={mySpot}></MyTouristSpot>)
+                                item.map((mySpot) => <MyTouristSpot key={mySpot._id} mySpot={mySpot} item={item} setItem={setItem}></MyTouristSpot>)
                             }
                         </tbody>
                     </table>

@@ -8,12 +8,12 @@ const Suggestion = () => {
     return (
         <section className="py-6 dark:bg-gray-100 md:mt-8">
             <div className="text-center">
-                <h3 className="text-first tracking-wider text-center text-2xl mt-6 mb-4  sm:mb-6">3 Steps for a perfect trip!</h3>
-                <Slide damping={0.1} duration={1000} direction="down">
+                <Slide damping={0.1} duration={1000}delay={400} direction="down"><h3 className="text-first tracking-wider text-center text-2xl mt-6 mb-4  sm:mb-6">3 Steps for a perfect trip!</h3></Slide>
+                <Slide damping={0.1} duration={1000}  direction="down">
                 <h1 className="text-5xl text-second font-bold leading-none sm:text-6xl dark:text-default-600">
                     Find Travel Perfection
                 </h1>
-                <p className="tracking-wide text-center text-lg mt-6 mb-4 sm:mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, qui.</p>
+                <p className="tracking-wide text-center text-lg mt-6 mb-4 sm:mb-6">Stop dreaming, start exploring. Find your ideal travel match!</p>
                 </Slide>
             </div>
             <div className="container flex flex-col justify-center p-4 mx-auto">
