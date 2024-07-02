@@ -68,7 +68,7 @@ const Register = () => {
                         <input type="email" placeholder="email" name="email" className="input input-bordered" {...register("email", { required: true })} />
                         {errors.email && <span className='text-red-600'>This field is required</span>}
                     </div>
-                    <div data-aos="fade-left" data-aos-delay="2400" className="form-control ">
+                    <div data-aos="fade-left" data-aos-delay="2400" className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>

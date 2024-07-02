@@ -13,7 +13,7 @@ const UpdateCard = () => {
     }, [id])
 
     const {average_cost, description, image, location, total_visit, tourist_spot, travel_time, country, season } = touristSpot;
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         const { average_cost, description, image, location, total_visit, tourist_spot, travel_time, country, season } = data;
         const upDateallData = { average_cost, description, image, location, total_visit, tourist_spot, travel_time, country, season }
@@ -26,7 +26,6 @@ const UpdateCard = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
@@ -36,7 +35,6 @@ const UpdateCard = () => {
                     })
                 }
             })
-        reset()
     }
     return (
         <section className="p-6 bg-gray-100 text-gray-900 dark:bg-gray-100 dark:text-gray-900">

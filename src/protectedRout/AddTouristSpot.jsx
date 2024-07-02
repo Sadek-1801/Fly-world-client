@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { Navigate, useNavigate } from "react-router-dom";
+import AuthHooks from "../hooks/AuthHooks";
 
 const AddTouristSpot = () => {
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit } = useForm()
+    const navigate = useNavigate()
+    const {user} = AuthHooks()
     const onSubmit = (data) => {
         const { average_cost, description, email, image, location, name, total_visit, tourist_spot, travel_time, season, country
         } = data
@@ -21,9 +25,9 @@ const AddTouristSpot = () => {
             .then(data => {
                 if (data.insertedId) {
                     toast.success("Tourist Spot Added Succefully")
+                    Navigate('/')
                 }
             })
-        reset()
     }
     return (
         <section className="p-6 bg-gray-100 text-gray-900 dark:bg-gray-100 dark:text-gray-900">
@@ -36,11 +40,11 @@ const AddTouristSpot = () => {
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm">Name</label>
-                            <input id="firstname" type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 border-gray-300 focus:ring-default-600" {...register("name", { required: true })} />
+                            <input defaultValue={user?.displayName} id="firstname" type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 border-gray-300 focus:ring-default-600" {...register("name", { required: true })} />
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="lastname" className="text-sm">Email</label>
-                            <input id="lastname" type="text" placeholder="Email" className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 border-gray-300 focus:ring-default-600" {...register("email", { required: true })} />
+                            <input defaultValue={user?.email} id="lastname" type="text" placeholder="Email" className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 border-gray-300 focus:ring-default-600" {...register("email", { required: true })} />
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm">Image URL</label>
